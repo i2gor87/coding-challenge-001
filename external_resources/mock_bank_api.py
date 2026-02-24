@@ -1,20 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
-from io import StringIO
 import random
-
-
-def get_invoice_csv_data() -> StringIO:
-    csv_data = """
-    invoice_number,total_amount,due_date
-    INV-001,100.00,2024-07-01
-    INV-002,200.00,2024-07-15
-    INV-003,150.00,2024-08-01
-    INV-004,,2024-08-10
-    INV-005,300.00,INVALID_DATE
-    BROKEN_ROW
-    """
-    return StringIO(csv_data.strip())
+from external_resources.secrets import MOCK_BANK_API_TOKENS
 
 
 @dataclass
@@ -28,13 +15,13 @@ class MockHttpResponse:
 
 class MockBankAPIServer:
     """
-    Authentication: Requires an "auth_token" in the request header. Valid token is "jtX6Qm^kU,%5]uCG".
+    Authentication: Requires an "auth_token" in the request header
     """
 
     def get_transactions(self, request: dict) -> MockHttpResponse:
         if random.random() < 0.5:
             return MockHttpResponse(status_code=500, data=None)
-        if request.get("Headers", {}).get("auth_token") != "jtX6Qm^kU,%5]uCG":
+        if request.get("Headers", {}).get("auth_token") not in MOCK_BANK_API_TOKENS:
             return MockHttpResponse(status_code=401, data=None)
         return MockHttpResponse(status_code=200, data=self._get_mock_transactions_data())
 
