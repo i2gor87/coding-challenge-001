@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
 @dataclass
@@ -23,8 +22,3 @@ class ReconciliationReport:
 
         print("=" * 30 + "\n")
 
-
-class BaseReconciliationService(ABC):
-    @abstractmethod
-    def get_reconciliation_report(self) -> ReconciliationReport:
-        ...
