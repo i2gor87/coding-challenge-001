@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+.env
+venv/
+.env.*
+*.egg-info/
+
+# Django
+db.sqlite3
+media/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# directory for experiments and temporary files
+/sandbox
