@@ -1,3 +1,3 @@
-from credibur_coding_challenge_001.settings import BASE_DIR
+from pathlib import Path
 
-INVOICE_DATA_CSV_PATH = BASE_DIR / "external_resources" / "invoice_data.csv"
+INVOICE_DATA_CSV_PATH = Path(__file__).parent  / "invoice_data.csv"

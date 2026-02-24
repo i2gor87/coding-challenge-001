@@ -6,3 +6,4 @@ Candidate is requested to implement the reconciliation process with ETL steps as
 
 Notes:
 - The implementation should be scalable to handle larger datasets (e.g., >100k records)
+- Data quality errors should be handled gracefully, with notifications for any mismatches or missing data

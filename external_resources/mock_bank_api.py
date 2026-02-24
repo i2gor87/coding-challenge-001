@@ -28,8 +28,8 @@ class MockBankAPIServer:
     @staticmethod
     def _get_mock_transactions_data() -> list[dict]:
         return [
-            {"amount": 50.00, "date": "2024-07-10", "note": "Partial payment for INV-001"},
-            {"amount": 200.00, "date": "2024-07-15", "note": "Payment for INV-002"},
-            {"amount": 100.00, "date": "2024-07-20", "note": "Payment for INV-216"},
-            {"amount": 150.00, "date": "2024-08-01", "note": "Payment for INV-003"},
+            {"id": "001", "amount": 50.00, "date": "2024-07-10", "note": "Payment for INV-001"},
+            {"id": "002", "amount": 200.00, "date": "2024-07-15", "note": "Payment for INV-002"},
+            {"id": "003", "amount": 100.00, "date": "2024-07-20", "note": "Payment for INV-216"},
+            {"id": "004", "amount": 150.00, "date": "2024-08-01", "note": "Payment for INV-003"},
         ]
